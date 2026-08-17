@@ -1,0 +1,27 @@
+<div class="auth-page">
+    <div class="container auth-shell">
+        <div class="auth-card">
+            <span class="eyebrow">Quản trị</span>
+            <h1 class="h2">Đăng nhập tài khoản</h1>
+            <p class="auth-subtitle">Chỉ admin mới có quyền quản lý công thức và bài viết.</p>
+
+            {{#if error}}
+                <div class="alert-error">{{error}}</div>
+            {{/if}}
+
+            <form action="/login" method="POST" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+</div>

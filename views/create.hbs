@@ -1,0 +1,48 @@
+<div class="create-page">
+    <div class="container">
+        <div class="create-shell">
+            <div class="create-intro">
+                <span class="eyebrow">Chia sẻ món ngon</span>
+                <h1 class="h1">Đăng bài viết công thức mới</h1>
+                <p>
+                    Hãy chia sẻ món ăn yêu thích của bạn để cộng đồng cùng khám phá, nấu thử và thưởng thức.
+                </p>
+                <ul class="create-benefits">
+                    <li>📌 Dễ dàng lưu trữ bài viết</li>
+                    <li>🍜 Chia sẻ công thức gia đình</li>
+                    <li>📷 Thêm hình ảnh và mô tả hấp dẫn</li>
+                </ul>
+            </div>
+
+            <div class="create-form-card">
+                <h2>Thông tin món ăn</h2>
+                <form method="POST" action="/blogs/store" class="create-form">
+                    <div class="form-group">
+                        <label for="name">Tiêu đề bài viết</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="VD: Bún chả Hà Nội" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Mô tả ngắn</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Mô tả ngắn về món ăn, hương vị, cách phục vụ..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Link hình ảnh</label>
+                        <input type="text" class="form-control" id="image" name="image" placeholder="https://...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug">Đường dẫn tĩnh (Slug)</label>
+                        <input type="text" class="form-control" id="slug" name="slug" placeholder="VD: bun-cha-ha-noi">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Đăng bài</button>
+                        <a href="/blogs/my-blogs" class="btn btn-secondary">Xem danh sách</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

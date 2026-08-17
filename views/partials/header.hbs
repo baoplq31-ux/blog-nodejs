@@ -1,0 +1,35 @@
+<header class="site-header">
+    <div class="container">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="/" class="brand" aria-label="Bếp Nhà Mình home">
+                <span class="brand-mark">🍲</span>
+                <span class="brand-name">Bếp Nhà Mình</span>
+            </a>
+
+            <ul class="desktop-nav">
+                <li><a href="/" class="nav-link">Trang chủ</a></li>
+                <li><a href="/blogs/recipes" class="nav-link">Công thức</a></li>
+                <li><a href="/about" class="nav-link">Giới thiệu</a></li>
+                <li><a href="/contact" class="nav-link">Liên hệ</a></li>
+                <li><a href="/search" class="nav-link">Tìm kiếm</a></li>
+            </ul>
+
+            <div class="header-tools">
+                <button class="theme-toggle-btn" type="button" aria-label="Bật tắt tối sáng">
+                    <span class="theme-icon">🌙</span>
+                </button>
+
+                <div class="account-menu">
+                    {{#if user}}
+                        <span class="user-pill">👋 {{user.username}}</span>
+                        <a href="/blogs/create" class="btn btn-primary btn-small">Đăng món</a>
+                        <a href="/logout" class="btn btn-secondary btn-small">Đăng xuất</a>
+                    {{else}}
+                        <a href="/login" class="btn btn-secondary btn-small">Đăng nhập</a>
+                        <a href="/login" class="btn btn-primary btn-small">Đăng món</a>
+                    {{/if}}
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

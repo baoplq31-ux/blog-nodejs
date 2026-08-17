@@ -1,0 +1,72 @@
+<div class="recipe-detail-page">
+    <div class="container recipe-detail-wrap">
+        <div class="recipe-detail-main">
+            <div class="detail-breadcrumbs">
+                <a href="/">Trang chủ</a>
+                <span>/</span>
+                <a href="/blogs/recipes">Công thức</a>
+                <span>/</span>
+                <span>{{blog.name}}</span>
+            </div>
+
+            <div class="recipe-hero-image">
+                <img src="{{blog.image}}" alt="{{blog.name}}">
+            </div>
+
+            <div class="recipe-info-box">
+                <div class="recipe-meta">
+                    <span>🍽️ Món ăn</span>
+                    <span>⏱️ 30 phút</span>
+                    <span>👩‍🍳 Dễ làm</span>
+                </div>
+                <h1>{{blog.name}}</h1>
+                <p class="recipe-summary">{{blog.description}}</p>
+            </div>
+
+            <div class="detail-section">
+                <h2>Nguyên liệu</h2>
+                <ul class="ingredient-list">
+                    <li>500g nguyên liệu chính</li>
+                    <li>2 thìa dầu ăn</li>
+                    <li>1 muỗng nhỏ gia vị</li>
+                    <li>1 ít hành, tỏi, rau thơm</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h2>Cách làm</h2>
+                <ol class="step-list">
+                    <li>Chuẩn bị nguyên liệu sạch sẽ và cắt nhỏ theo khẩu phần.</li>
+                    <li>Phi thơm hành tỏi với dầu ăn trong vài phút.</li>
+                    <li>Cho nguyên liệu chính vào xào đều, nêm gia vị vừa ăn.</li>
+                    <li>Khoảng 8–12 phút, tiếp tục đảo đều cho chín mềm và thơm.</li>
+                    <li>Trang trí rau thơm và thưởng thức khi còn nóng.</li>
+                </ol>
+            </div>
+        </div>
+
+        <aside class="recipe-sidebar">
+            <div class="author-card">
+                <h3>Tác giả</h3>
+                <div class="author-row">
+                    <span class="author-avatar">👨‍🍳</span>
+                    <div>
+                        <strong>Admin Bếp Nhà Mình</strong>
+                        <p>Chia sẻ món ngon mỗi ngày</p>
+                    </div>
+                </div>
+                <a href="/contact" class="btn btn-primary btn-block">Liên hệ</a>
+            </div>
+
+            <div class="sidebar-box">
+                <h3>Gợi ý món khác</h3>
+                <ul class="mini-list">
+                    <li><a href="/blogs/recipes">Món ăn mới</a></li>
+                    <li><a href="/search?q=thịt">Món thịt</a></li>
+                    <li><a href="/search?q=canh">Món canh</a></li>
+                    <li><a href="/search?q=tráng+miệng">Tráng miệng</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>

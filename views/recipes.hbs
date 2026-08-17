@@ -1,0 +1,37 @@
+<div class="public-list">
+    <div class="container">
+        <div class="admin-header">
+            <span class="eyebrow">Bộ sưu tập công thức</span>
+            <h2 class="h2">Món ngon cho cả gia đình</h2>
+        </div>
+
+        {{#if blogs.length}}
+            <div class="public-grid recipe-grid">
+                {{#each blogs}}
+                    <article class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="{{this.image}}" alt="{{this.name}}">
+                            <span class="recipe-tag">Món mới</span>
+                        </div>
+                        <div class="recipe-content">
+                            <div class="meta-row">
+                                <span>30 phút</span>
+                                <span>Dễ làm</span>
+                            </div>
+                            <h3><a href="/blogs/{{this.slug}}">{{this.name}}</a></h3>
+                            <p>{{this.description}}</p>
+                            <div class="recipe-footer">
+                                <a href="/blogs/{{this.slug}}" class="read-more">Xem chi tiết →</a>
+                            </div>
+                        </div>
+                    </article>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="empty-state">
+                <p>Chưa có công thức nào để hiển thị.</p>
+                <a href="/" class="btn btn-primary">Về trang chủ</a>
+            </div>
+        {{/if}}
+    </div>
+</div>

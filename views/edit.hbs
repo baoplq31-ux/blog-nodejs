@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="mb-0">Cập nhật bài viết</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/blogs/{{blog._id}}?_method=PUT">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tiêu đề bài viết</label>
+                            <input type="text" class="form-control" value="{{blog.name}}" id="name" name="name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Mô tả ngắn</label>
+                            <textarea class="form-control" id="description" name="description" rows="4">{{blog.description}}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Link hình ảnh</label>
+                            <input type="text" class="form-control" value="{{blog.image}}" id="image" name="image">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Đường dẫn tĩnh (Slug)</label>
+                            <input type="text" class="form-control" value="{{blog.slug}}" id="slug" name="slug" placeholder="VD: mon-an-ngon">
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Lưu lại</button>
+                            <a href="/blogs/my-blogs" class="btn btn-outline-secondary">Hủy</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

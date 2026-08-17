@@ -1,0 +1,140 @@
+<main class="recipe-page">
+    <section class="hero recipe-hero">
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <span class="eyebrow">Món ngon mỗi ngày</span>
+                <h1 class="h1">Công thức nấu ăn dễ làm, hấp dẫn và phù hợp gia đình.</h1>
+                <p class="lead">
+                    Khám phá những món ăn nhanh gọn, giàu dinh dưỡng và đẹp mắt để bữa cơm thêm ấm áp.
+                    Từ món cơm, món canh đến món tráng miệng, tất cả đều có hướng dẫn rõ ràng.
+                </p>
+                <div class="hero-actions">
+                    <a href="/blogs/recipes" class="btn btn-primary">Xem công thức</a>
+                    <a href="/about" class="btn btn-secondary">Về bếp nhà mình</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <strong>1200+</strong>
+                        <span>Công thức</span>
+                    </div>
+                    <div>
+                        <strong>4.9/5</strong>
+                        <span>Đánh giá</span>
+                    </div>
+                    <div>
+                        <strong>30 phút</strong>
+                        <span>Trung bình</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="image-card main-image-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80" alt="Món ăn hấp dẫn" />
+                </div>
+                <div class="floating-card floating-card-top">
+                    <span>🔥 Món hot</span>
+                    <strong>Bún bò huế</strong>
+                </div>
+                <div class="floating-card floating-card-bottom">
+                    <span>⭐ 1.2k lượt thích</span>
+                    <strong>50.000 views</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container categories-grid">
+            <article class="category-card">
+                <div class="category-icon">🥗</div>
+                <h3>Món lành mạnh</h3>
+                <p>Thực đơn nhẹ, ngăn ngừa ngán và bổ dưỡng cho cả gia đình.</p>
+            </article>
+            <article class="category-card">
+                <div class="category-icon">🍜</div>
+                <h3>Món mặn ngon</h3>
+                <p>Gợi ý nhiều món ăn đậm vị, dễ làm nhưng vẫn giữ nguyên hương vị.</p>
+            </article>
+            <article class="category-card">
+                <div class="category-icon">🥧</div>
+                <h3>Tráng miệng</h3>
+                <p>Đồ ngọt vừa đủ, dễ làm cho các buổi tụ họp gia đình.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="recipes-section" id="recipes">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">Bộ sưu tập mới</span>
+                <h2 class="h2">Món ăn được yêu thích</h2>
+            </div>
+
+            <div class="recipe-grid">
+                {{#each blogs}}
+                <article class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="{{this.image}}" alt="{{this.name}}" />
+                        <span class="recipe-tag">Món ngon</span>
+                    </div>
+                    <div class="recipe-content">
+                        <div class="meta-row">
+                            <span>30 phút</span>
+                            <span>Dễ làm</span>
+                        </div>
+                        <h3><a href="/blogs/{{this.slug}}" class="h3">{{this.name}}</a></h3>
+                        <p>{{this.description}}</p>
+                        <div class="recipe-footer">
+                            <a href="/blogs/{{this.slug}}" class="read-more">Xem công thức →</a>
+                        </div>
+                    </div>
+                </article>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <section class="tips-section">
+        <div class="container tips-grid">
+            <div class="tips-copy">
+                <span class="eyebrow">Mẹo hay</span>
+                <h2 class="h2">Nấu ăn ngon hơn với các bí quyết đơn giản.</h2>
+                <ul class="tips-list">
+                    <li>Chọn nguyên liệu tươi, đúng mùa để giữ hương vị tự nhiên.</li>
+                    <li>Điều chỉnh lượng gia vị theo khẩu vị gia đình bạn.</li>
+                    <li>Dùng nồi chiên hoặc lò nướng để tiết kiệm thời gian nấu.</li>
+                </ul>
+            </div>
+            <div class="tip-card-panel">
+                <div class="mini-card">
+                    <span>🥘</span>
+                    <div>
+                        <strong>15 phút</strong>
+                        <p>Chuẩn bị nguyên liệu</p>
+                    </div>
+                </div>
+                <div class="mini-card">
+                    <span>👩‍🍳</span>
+                    <div>
+                        <strong>1 bí quyết</strong>
+                        <p>Thêm chanh để món ăn tươi hơn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-block">
+        <div class="container newsletter-box">
+            <div>
+                <span class="eyebrow">Nhận tin mới</span>
+                <h2 class="h2">Đăng ký để nhận công thức mới mỗi tuần.</h2>
+            </div>
+            <form class="newsletter-form" action="#">
+                <input type="email" name="email" placeholder="Nhập email của bạn" required>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+        </div>
+    </section>
+</main>

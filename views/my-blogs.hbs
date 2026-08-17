@@ -1,0 +1,102 @@
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">Quản lý bài viết</h2>
+            <p class="text-muted mb-0">
+                Danh sách tất cả bài viết của bạn
+            </p>
+        </div>
+
+        <a href="/blogs/create" class="btn btn-primary">
+            + Thêm bài viết
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 80px;">STT</th>
+                            <th>Tên bài viết</th>
+                            <th>Ngày tạo</th>
+                            <th style="width: 220px;">Hành động</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {{#each blogs}}
+
+                        <tr>
+                            <td>
+                                {{sum @index 1}}
+                            </td>
+
+                            <td>
+                                <a href="/blogs/{{this.slug}}" class="text-decoration-none fw-bold text-dark">
+                                    <strong>{{this.name}}</strong>
+                                </a>
+                            </td>
+
+                            <td>
+                                {{this.createdAt}}
+                            </td>
+
+                            <td>
+                                <a
+                                    href="/blogs/{{this.slug}}"
+                                    class="btn btn-info btn-sm me-2 text-white"
+                                >
+                                    Xem
+                                </a>
+
+                                <a
+                                    href="/blogs/{{this._id}}/edit"
+                                    class="btn btn-warning btn-sm me-2"
+                                >
+                                    Sửa
+                                </a>
+
+                                <form
+                                    method="POST"
+                                    action="/blogs/{{this._id}}?_method=DELETE"
+                                    class="d-inline"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Bạn có chắc muốn xóa bài viết này?')"
+                                    >
+                                        Xóa
+                                    </button>
+                                </form>
+
+                            </td>
+                        </tr>
+
+                        {{else}}
+
+                        <tr>
+                            <td colspan="4" class="text-center py-5">
+                                <p class="text-muted mb-0">
+                                    Chưa có bài viết nào.
+                                </p>
+                            </td>
+                        </tr>
+
+                        {{/each}}
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
