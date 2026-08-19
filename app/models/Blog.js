@@ -7,6 +7,7 @@ const Blog = new Schema({
     description: { type: String, maxLength: 600 }, // Mô tả ngắn
     image: { type: String, maxLength: 255 }, // Link hình ảnh
     slug: { type: String, maxLength: 255 }, // Đường dẫn URL thân thiện
+    category: { type: String, enum: ['Món mặn', 'Món canh', 'Món chay', 'Tráng miệng', 'Đồ uống'], default: 'Món mặn' },
     createdAt: { type: Date, default: Date.now }, // Tự động lưu thời gian tạo
     updatedAt: { type: Date, default: Date.now }  // Tự động lưu thời gian cập nhật
 });

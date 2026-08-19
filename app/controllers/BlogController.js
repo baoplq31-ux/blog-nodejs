@@ -4,6 +4,7 @@ class BlogController {
     store(req, res, next) {
         // Lấy dữ liệu người dùng nhập từ req.body
         const formData = req.body;
+        formData.category = formData.category || 'Món mặn';
 
         // Khởi tạo một đối tượng Blog mới dựa trên dữ liệu form
         const blog = new Blog(formData);
@@ -21,23 +22,40 @@ class BlogController {
     }
 
     recipes(req, res, next) {
-        Blog.find({})
-            .sort({ createdAt: -1 })
-            .lean()
-            .then(blogs => {
-                res.render('recipes', { blogs });
+        const page = Math.max(Number.parseInt(req.query.page, 10) || 1, 1);
+        const limit = 6;
+        const category = req.query.category || '';
+        const query = category === 'Món mặn'
+            ? { $or: [{ category: 'Món mặn' }, { category: { $exists: false } }] }
+            : (category ? { category } : {});
+
+        Promise.all([
+            Blog.find(query).sort({ createdAt: -1 }).skip((page - 1) * limit).limit(limit).lean(),
+            Blog.countDocuments(query)
+        ])
+            .then(([blogs, total]) => {
+                res.render('recipes', {
+                    blogs,
+                    category,
+                    pagination: { page, totalPages: Math.ceil(total / limit), hasPrevious: page > 1, hasNext: page * limit < total, previousPage: page - 1, nextPage: page + 1 }
+                });
             })
             .catch(next);
     }
 
     myBlogs(req, res, next) {
-    Blog.find({})
-        .sort({ createdAt: -1 })
-        .lean()
-        .then(blogs => {
+        const page = Math.max(Number.parseInt(req.query.page, 10) || 1, 1);
+        const limit = 10;
+
+        Promise.all([
+            Blog.find({}).sort({ createdAt: -1 }).skip((page - 1) * limit).limit(limit).lean(),
+            Blog.countDocuments({})
+        ])
+        .then(([blogs, total]) => {
             res.render('my-blogs', {
-                blogs: blogs,
-                isAdmin: true
+                blogs,
+                isAdmin: true,
+                pagination: { page, totalPages: Math.ceil(total / limit), hasPrevious: page > 1, hasNext: page * limit < total, previousPage: page - 1, nextPage: page + 1 }
             });
         })
         .catch(next);
@@ -55,6 +73,7 @@ class BlogController {
     update(req, res, next) {
         const updatedData = {
             ...req.body,
+            category: req.body.category || 'Món mặn',
             updatedAt: new Date()
         };
 

@@ -881,6 +881,66 @@ body.dark-theme .floating-card {
   gap: 24px;
 }
 
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.category-filter label {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.category-filter select,
+.search-box select {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  padding: 0.7rem 0.9rem;
+}
+
+.category-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg-strong);
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  background: var(--card);
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.pagination-link:hover {
+  background: var(--bg-strong);
+}
+
+.pagination-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .admin-toolbar {
   display: flex;
   justify-content: space-between;
@@ -1224,6 +1284,16 @@ body.dark-theme .newsletter-box {
   .recipe-grid,
   .categories-grid {
     grid-template-columns: 1fr;
+  }
+
+  .category-filter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box select,
+  .category-filter select {
+    width: 100%;
   }
 
   .hero {

@@ -18,6 +18,17 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="category" class="form-label">Phân loại món ăn</label>
+                            <select class="form-control" id="category" name="category" required>
+                                <option value="Món mặn" {{#if (eq blog.category "Món mặn")}}selected{{/if}}>Món mặn</option>
+                                <option value="Món canh" {{#if (eq blog.category "Món canh")}}selected{{/if}}>Món canh</option>
+                                <option value="Món chay" {{#if (eq blog.category "Món chay")}}selected{{/if}}>Món chay</option>
+                                <option value="Tráng miệng" {{#if (eq blog.category "Tráng miệng")}}selected{{/if}}>Tráng miệng</option>
+                                <option value="Đồ uống" {{#if (eq blog.category "Đồ uống")}}selected{{/if}}>Đồ uống</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="image" class="form-label">Link hình ảnh</label>
                             <input type="text" class="form-control" value="{{blog.image}}" id="image" name="image">
                         </div>

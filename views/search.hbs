@@ -7,6 +7,14 @@
 
         <form action="/search" method="GET" class="search-box">
             <input type="text" name="q" value="{{q}}" placeholder="Nhập món ăn, nguyên liệu hoặc từ khóa..." required>
+            <select name="category" aria-label="Lọc theo loại món">
+                <option value="">Tất cả loại món</option>
+                <option value="Món mặn" {{#if (eq category "Món mặn")}}selected{{/if}}>Món mặn</option>
+                <option value="Món canh" {{#if (eq category "Món canh")}}selected{{/if}}>Món canh</option>
+                <option value="Món chay" {{#if (eq category "Món chay")}}selected{{/if}}>Món chay</option>
+                <option value="Tráng miệng" {{#if (eq category "Tráng miệng")}}selected{{/if}}>Tráng miệng</option>
+                <option value="Đồ uống" {{#if (eq category "Đồ uống")}}selected{{/if}}>Đồ uống</option>
+            </select>
             <button type="submit" class="btn btn-primary">Tìm kiếm</button>
         </form>
 
@@ -23,7 +31,7 @@
                         <article class="recipe-card">
                             <div class="recipe-image">
                                 <img src="{{this.image}}" alt="{{this.name}}">
-                                <span class="recipe-tag">Món ngon</span>
+                                <span class="recipe-tag">{{#if this.category}}{{this.category}}{{else}}Món mặn{{/if}}</span>
                             </div>
                             <div class="recipe-content">
                                 <div class="meta-row">
@@ -38,6 +46,15 @@
                             </div>
                         </article>
                     {{/each}}
+                </div>
+                <div class="pagination-bar">
+                    {{#if pagination.hasPrevious}}
+                        <a class="pagination-link" href="/search?page={{pagination.previousPage}}&q={{q}}{{#if category}}&category={{category}}{{/if}}">← Trước</a>
+                    {{/if}}
+                    <span class="pagination-status">Trang {{pagination.page}} / {{pagination.totalPages}}</span>
+                    {{#if pagination.hasNext}}
+                        <a class="pagination-link" href="/search?page={{pagination.nextPage}}&q={{q}}{{#if category}}&category={{category}}{{/if}}">Sau →</a>
+                    {{/if}}
                 </div>
             {{else}}
                 <div class="empty-state">

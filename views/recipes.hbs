@@ -5,13 +5,25 @@
             <h2 class="h2">Món ngon cho cả gia đình</h2>
         </div>
 
+        <form action="/blogs/recipes" method="GET" class="category-filter">
+            <label for="recipe-category">Lọc theo loại món</label>
+            <select id="recipe-category" name="category" onchange="this.form.submit()">
+                <option value="">Tất cả món ăn</option>
+                <option value="Món mặn" {{#if (eq category "Món mặn")}}selected{{/if}}>Món mặn</option>
+                <option value="Món canh" {{#if (eq category "Món canh")}}selected{{/if}}>Món canh</option>
+                <option value="Món chay" {{#if (eq category "Món chay")}}selected{{/if}}>Món chay</option>
+                <option value="Tráng miệng" {{#if (eq category "Tráng miệng")}}selected{{/if}}>Tráng miệng</option>
+                <option value="Đồ uống" {{#if (eq category "Đồ uống")}}selected{{/if}}>Đồ uống</option>
+            </select>
+        </form>
+
         {{#if blogs.length}}
             <div class="public-grid recipe-grid">
                 {{#each blogs}}
                     <article class="recipe-card">
                         <div class="recipe-image">
                             <img src="{{this.image}}" alt="{{this.name}}">
-                            <span class="recipe-tag">Món mới</span>
+                            <span class="recipe-tag">{{#if this.category}}{{this.category}}{{else}}Món mặn{{/if}}</span>
                         </div>
                         <div class="recipe-content">
                             <div class="meta-row">
@@ -27,6 +39,14 @@
                     </article>
                 {{/each}}
             </div>
+
+            {{#if pagination.hasPrevious}}
+                <a class="pagination-link" href="/blogs/recipes?page={{pagination.previousPage}}{{#if category}}&category={{category}}{{/if}}">← Trước</a>
+            {{/if}}
+            <span class="pagination-status">Trang {{pagination.page}} / {{pagination.totalPages}}</span>
+            {{#if pagination.hasNext}}
+                <a class="pagination-link" href="/blogs/recipes?page={{pagination.nextPage}}{{#if category}}&category={{category}}{{/if}}">Sau →</a>
+            {{/if}}
         {{else}}
             <div class="empty-state">
                 <p>Chưa có công thức nào để hiển thị.</p>

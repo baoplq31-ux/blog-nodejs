@@ -23,6 +23,7 @@
                         <tr>
                             <th style="width: 80px;">STT</th>
                             <th>Tên bài viết</th>
+                            <th>Phân loại</th>
                             <th>Ngày tạo</th>
                             <th style="width: 220px;">Hành động</th>
                         </tr>
@@ -41,6 +42,10 @@
                                 <a href="/blogs/{{this.slug}}" class="text-decoration-none fw-bold text-dark">
                                     <strong>{{this.name}}</strong>
                                 </a>
+                            </td>
+
+                            <td>
+                                <span class="category-badge">{{#if this.category}}{{this.category}}{{else}}Món mặn{{/if}}</span>
                             </td>
 
                             <td>
@@ -82,7 +87,7 @@
                         {{else}}
 
                         <tr>
-                            <td colspan="4" class="text-center py-5">
+                            <td colspan="5" class="text-center py-5">
                                 <p class="text-muted mb-0">
                                     Chưa có bài viết nào.
                                 </p>
@@ -94,6 +99,16 @@
                     </tbody>
 
                 </table>
+            </div>
+
+            <div class="pagination-bar">
+                {{#if pagination.hasPrevious}}
+                    <a class="pagination-link" href="/blogs/my-blogs?page={{pagination.previousPage}}">← Trước</a>
+                {{/if}}
+                <span class="pagination-status">Trang {{pagination.page}} / {{pagination.totalPages}}</span>
+                {{#if pagination.hasNext}}
+                    <a class="pagination-link" href="/blogs/my-blogs?page={{pagination.nextPage}}">Sau →</a>
+                {{/if}}
             </div>
 
         </div>

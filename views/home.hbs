@@ -92,6 +92,16 @@
                 </article>
                 {{/each}}
             </div>
+
+            <div class="pagination-bar">
+                {{#if pagination.hasPrevious}}
+                    <a class="pagination-link" href="/?page={{pagination.previousPage}}">← Trước</a>
+                {{/if}}
+                <span class="pagination-status">Trang {{pagination.page}} / {{pagination.totalPages}}</span>
+                {{#if pagination.hasNext}}
+                    <a class="pagination-link" href="/?page={{pagination.nextPage}}">Sau →</a>
+                {{/if}}
+            </div>
         </div>
     </section>
 
